@@ -1,14 +1,15 @@
+
 spring:
   datasource:
     druid:
       master:  #数据源1
-        url: jdbc:mysql://xxxx1:3306/online_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+        url: jdbc:mysql://192.168.30.130:3306/bootdo?useUnicode=true&characterEncoding=UTF-8
         username: root
-        password: root
+        password: 123456
       slave:  #数据源2
-        url: jdbc:mysql://xxxxx2:3306/online_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+        url: jdbc:mysql://192.168.30.131:3306/bootdo?useUnicode=true&characterEncoding=UTF-8
         username: root
-        password: root
+        password: 123456
       driverClassName: com.mysql.jdbc.Driver
       #最大活跃数
       maxActive: 20
@@ -30,3 +31,8 @@ spring:
       testOnReturn: false
       #配置监控统计拦截的filters，去掉后监控界面sql将无法统计,'wall'用于防火墙
       filters: stat, wall, log4j
+server:
+  port: 8989
+mybatis:
+  mapper-locations: com/yjs/dao/*Mapper.xml
+  type-aliases-package: com.yjs.entity

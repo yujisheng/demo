@@ -17,4 +17,11 @@ public class UserDo implements Serializable {
     private String email;
     private String mobile;
 
+    public UserDo(String username, String name, String password, String email, String mobile) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.mobile = mobile;
+    }
 }

@@ -1,5 +1,6 @@
 package com.yjs.conf;
 
+import com.yjs.utils.DataSourceMark;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -38,8 +39,8 @@ public class DataSourceAspect {
             logger.info(m.getName());
 
             // 判断@DataSource注解是否在切入点方法的上，如果在上面，获取数据源对象并切换数据源
-            if (m != null && m.isAnnotationPresent(DataSource.class)) {
-                DataSource data = m.getAnnotation(DataSource.class);
+            if (m != null && m.isAnnotationPresent(DataSourceMark.class)) {
+                DataSourceMark data = m.getAnnotation(DataSourceMark.class);
                 logger.info("切换数据源===》" + data.value());
                 DynamicDataSourceHolder.setDataSource(data.value());
             }

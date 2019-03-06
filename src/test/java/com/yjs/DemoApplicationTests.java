@@ -23,6 +23,8 @@ public class DemoApplicationTests {
 
     @Test
     public void mm() {
+        UserDo userDo1 = new UserDo("s234", "水电费", "gwer", "sdfaf", "sdfas");
+        userService.save(userDo1);
         List<UserDo> userDoList = userService.get();
         for (UserDo userDo : userDoList) {
             System.out.println("userDo = " + userDo);
